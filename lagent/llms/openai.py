@@ -329,7 +329,8 @@ class GPTAPI(BaseAPIModel):
                     self.url,
                     headers=header,
                     data=json.dumps(data),
-                    proxies=self.proxies)
+                    proxies=self.proxies,
+                    stream=True)
                 return streaming(raw_response)
             except requests.ConnectionError:
                 print('Got connection error, retrying...')
